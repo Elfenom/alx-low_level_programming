@@ -1,20 +1,27 @@
-nclude "main.h"
+#include "main.h"
 #include <stdio.h>
+
 /**
- *  * print_array - prints n element of an array of integers
- *   * Owned by Bwave
- *    * @a: int to check
- *     * @n: int to check
- *      * Return: 0 is success
- *       */
+ *  * print_array - function that prints n elements of an array of integers
+ *   * followed by a new line.
+ *    *
+ *     * @a: the variable pointer at a
+ *      * @n: the variable pointer at n
+ *       *
+ *        */
+
 void print_array(int *a, int n)
 {
-		int x;
+	int i;
 
-			for (x = 0; x < n; x++)
-						if (x != n - 1)
-									printf("%d, ", a[x]);
-					else
-									printf("%d", a[x]);
-			printf("\n");
+	for (i = 0; i < n; i++)
+	{
+		printf("%d", a[i]);
+		if (i != (n - 1))
+		{
+			printf(",");
+			printf(" ");
+		}
+	}
+	printf("\n");
 }
