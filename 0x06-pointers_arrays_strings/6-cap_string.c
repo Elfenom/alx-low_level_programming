@@ -1,44 +1,36 @@
-#include "main.h"
+nclude "main.h"
 
 /**
- *  * cap_string - function that capitalizes all words of a string.
- *   * @str: The string
- *    * Return: The string
+ *  * cap_string - Capitalize first letter of a string
+ *   * @s: string argument
+ *    * Return: the uppercase string
  *     */
 
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-int i, j;
-int hasWord;
-char separators[] = ",;.!?(){}\n\t\" ";
+		int i = 0;
 
-for (i = 0, hasWord = 0; str[i] != '\0'; i++)
-{
-if (str[0] >= 'a' && str[0] <= 'z')
-{
-hasWord = 1;
+			if (s[i] >= 'a' && s[i] <= 'z')
+					{
+								s[i] = s[i] - 'a' + 'A';
+									}
+				i++;
+
+					while (s[i] != '\0')
+							{
+										if ((s[i] >= 'a' && s[i] <= 'z') && (s[i - 1] == ' '
+																|| s[i - 1] == '\t' || s[i - 1] == '\n'
+																			|| s[i - 1] == ',' || s[i - 1] == ';'
+																						|| s[i - 1] == '.' || s[i - 1] == '!'
+																									|| s[i - 1] == '?' || s[i - 1] == '"'
+																												|| s[i - 1] == '(' || s[i - 1] == ')'
+																															|| s[i - 1] == '{' || s[i - 1] == '}'))
+													{
+																	s[i] = s[i] - 'a' + 'A';
+																			}
+
+												i++;
+													}
+
+						return (s);
 }
-for (j = 0; separators[j] != '\0'; j++)
-{
-if (separators[j] == str[i])
-hasWord = 1;
-}
-if (hasWord)
-{
-if (str[i] >= 'a' && str[i] <= 'z')
-{
-str[i] -= ('a' - 'A');
-hasWord = 0;
-}
-else if (str[i] >= 'A' && str[i] <= 'Z')
-{
-hasWord = 0;
-}
-else if (str[i] >= '0' && str[i] <= '9')
-{
-hasWord = 0;
-}
-}
-}
-return (str);
-}}
